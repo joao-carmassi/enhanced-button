@@ -167,27 +167,69 @@ const global = [
   {
     language: 'css',
     filename: 'global.css',
-    code: `--animate-shine: shine 3s ease-out infinite;
-@keyframes shine {
-  0% {
-    background-position: 200% 0;
+    code: `@theme inline {
+  --animate-shine: shine 3s ease-out infinite;
+  @keyframes shine {
+    0% {
+      background-position: 200% 0;
+    }
+    25% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
-  25% {
-    background-position: -200% 0;
+
+  --animate-rainbow: rainbow 3s linear infinite;
+  @keyframes rainbow {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
   }
-  100% {
-    background-position: -200% 0;
+
+  --animate-button-pulsating: button-pulsating 1.5s ease-out infinite;
+  @keyframes button-pulsating {
+    0% {
+      box-shadow: 0 0 0 0 var(--button-pulse-color, currentColor);
+    }
+    70% {
+      box-shadow: 0 0 0 8px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  --animate-pulse: pulse var(--duration) ease-out infinite;
+  @keyframes pulse {
+    0%,
+    100% {
+      boxshadow: 0 0 0 0 var(--pulse-color);
+    }
+    50% {
+      boxshadow: 0 0 0 8px var(--pulse-color);
+    }
   }
 }
 
---animate-rainbow: rainbow 3s linear infinite;
-@keyframes rainbow {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 200%;
-  }
+[data-variant='default'] {
+  --button-pulse-color: var(--primary);
+}
+[data-variant='destructive'] {
+  --button-pulse-color: var(--destructive);
+}
+[data-variant='secondary'] {
+  --button-pulse-color: var(--secondary-foreground);
+}
+[data-variant='outline'] {
+  --button-pulse-color: var(--ring);
+}
+[data-variant='ghost'] {
+  --button-pulse-color: var(--ring);
 }`,
   },
 ];
