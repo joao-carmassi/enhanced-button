@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Raleway } from 'next/font/google';
+import Footer from '@/components/footer';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang='en'>
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
