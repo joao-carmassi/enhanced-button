@@ -254,9 +254,9 @@ function Hero(): React.ReactNode {
         </Button>
 
         <h1 className='text-3xl font-medium sm:text-6xl text-center'>
-          Enhanced version of{' '}
+          Enhanced Button V4{' '}
           <span className='animate-text-gradient bg-linear-to-r from-zinc-900 via-zinc-500 to-zinc-500 bg-size-[150%_auto] bg-clip-text leading-tight text-transparent '>
-            shadcn-button component.
+            a shadcn-button component.
           </span>
         </h1>
 

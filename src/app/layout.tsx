@@ -8,8 +8,9 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: 'Enhanced Button',
-  description: 'A simple button component with enhanced features.',
+  title: 'Enhanced Button V4',
+  description:
+    'A simple button component with enhanced features for tailwind V4.',
 };
 
 export default function RootLayout({

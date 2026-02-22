@@ -1,6 +1,6 @@
-# Enhanced Button
+# Enhanced Button V4
 
-An interactive showcase of an enhanced `Button` component built on top of [shadcn/ui](https://ui.shadcn.com/), featuring extra variants, visual effects, sizes, and a loading state — all demonstrated with live examples and copyable code snippets.
+An interactive showcase of an enhanced `Button` component built on top of [shadcn/ui](https://ui.shadcn.com/), featuring extra variants, visual effects, sizes, and a loading state — all demonstrated with live examples and copyable code snippets. Built for Tailwind V4.
 
 > Based on the original project by **Jakob Hoeg**: [github.com/jakobhoeg/enhanced-button](https://github.com/jakobhoeg/enhanced-button)
 
