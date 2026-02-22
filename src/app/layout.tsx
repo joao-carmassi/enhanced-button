@@ -33,6 +33,5 @@ export default function RootLayout({
   1. Button
   2. Examples
   3. Hero
-  4. Public
-  5. JSON
+  4. JSON
 */

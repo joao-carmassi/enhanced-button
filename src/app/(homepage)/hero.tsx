@@ -32,8 +32,8 @@ import { useState } from 'react';
 const button = [
   {
     language: 'jsx',
-    filename: 'button.tsx',
-    code: `import * as React from 'react';
+    filename: 'index.tsx',
+    code: `import './style.css';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
@@ -100,6 +100,7 @@ const buttonVariants = cva(
           'relative !no-underline after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300',
         hoverUnderline:
           'relative !no-underline after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300',
+        pulsating: 'animate-button-pulsating',
         rainbow:
           'relative animate-rainbow hover:brightness-110 border-0 bg-[linear-gradient(#121213,#121213),linear-gradient(#121213_50%,rgba(18,18,19,0.6)_80%,rgba(18,18,19,0)),linear-gradient(90deg,oklch(66.2%_0.225_25.9),oklch(90.7%_0.231_133),oklch(69.6%_0.165_251),oklch(80.2%_0.134_225),oklch(60.4%_0.26_302))] bg-[length:200%] text-primary-foreground [background-clip:padding-box,border-box,border-box] [background-origin:border-box] [border:calc(0.125rem)_solid_transparent] before:absolute before:bottom-[-20%] before:left-1/2 before:z-0 before:h-1/5 before:w-3/5 before:-translate-x-1/2 before:animate-rainbow before:bg-[linear-gradient(90deg,oklch(66.2%_0.225_25.9),oklch(90.7%_0.231_133),oklch(69.6%_0.165_251),oklch(80.2%_0.134_225),oklch(60.4%_0.26_302))] before:[filter:blur(0.75rem)] dark:bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,oklch(66.2%_0.225_25.9),oklch(90.7%_0.231_133),oklch(69.6%_0.165_251),oklch(80.2%_0.134_225),oklch(60.4%_0.26_302))]',
       },
@@ -181,56 +182,62 @@ export { Button, buttonVariants };`,
   },
 ];
 
-const global = [
+const style = [
   {
     language: 'css',
-    filename: 'global.css',
-    code: `@theme inline {
-  --animate-shine: shine 3s ease-out infinite;
-  @keyframes shine {
-    0% {
-      background-position: 200% 0;
-    }
-    25% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
+    filename: 'style.css',
+    code: `.before\:animate-shine::before {
+  animation: shine 3s ease-out infinite;
+}
 
-  --animate-rainbow: rainbow 3s linear infinite;
-  @keyframes rainbow {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 200%;
-    }
-  }
+.animate-rainbow {
+  animation: rainbow 3s linear infinite;
+}
 
-  --animate-button-pulsating: button-pulsating 1.5s ease-out infinite;
-  @keyframes button-pulsating {
-    0% {
-      box-shadow: 0 0 0 0 var(--button-pulse-color, currentColor);
-    }
-    70% {
-      box-shadow: 0 0 0 8px transparent;
-    }
-    100% {
-      box-shadow: 0 0 0 0 transparent;
-    }
-  }
+.animate-button-pulsating {
+  animation: button-pulsating 1.5s ease-out infinite;
+}
 
-  --animate-pulse: pulse var(--duration) ease-out infinite;
-  @keyframes pulse {
-    0%,
-    100% {
-      boxshadow: 0 0 0 0 var(--pulse-color);
-    }
-    50% {
-      boxshadow: 0 0 0 8px var(--pulse-color);
-    }
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  25% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+@keyframes button-pulsating {
+  0% {
+    box-shadow: 0 0 0 0 var(--button-pulse-color, currentColor);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-color);
+  }
+  50% {
+    box-shadow: 0 0 0 8px var(--pulse-color);
   }
 }
 
@@ -325,8 +332,8 @@ function Hero(): React.ReactNode {
 
         <Tabs defaultValue='button' className='w-full'>
           <TabsList>
-            <TabsTrigger value='button'>button.tsx</TabsTrigger>
-            <TabsTrigger value='global'>global.css</TabsTrigger>
+            <TabsTrigger value='button'>index.tsx</TabsTrigger>
+            <TabsTrigger value='global'>style.css</TabsTrigger>
           </TabsList>
           <TabsContent value='button'>
             {' '}
@@ -358,7 +365,7 @@ function Hero(): React.ReactNode {
             </CodeBlock>
           </TabsContent>
           <TabsContent value='global'>
-            <CodeBlock data={global} defaultValue={global[0].language}>
+            <CodeBlock data={style} defaultValue={style[0].language}>
               <CodeBlockHeader>
                 <CodeBlockFiles>
                   {(item) => (
