@@ -1,10 +1,11 @@
+import getBasePath from '@/lib/get-base-path';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
-  basePath: '/enhanced-button',
-  assetPrefix: '/enhanced-button',
+  basePath: getBasePath(),
+  assetPrefix: getBasePath(),
   output: 'export',
 };
 
