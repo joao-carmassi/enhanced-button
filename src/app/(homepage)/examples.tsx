@@ -5,13 +5,13 @@ import { buttonExamples } from './button-examples-list';
 function Examples(): React.ReactNode {
   return (
     <section className='px-6 py-6 md:py-12'>
-      <div className='container mx-auto space-y-10 w-full min-w-0'>
+      <div className='container mx-auto space-y-6 md:space-y-12 w-full min-w-0'>
         <div className='space-y-2'>
-          <h2 className='text-xl font-medium sm:text-4xl text-center'>
+          <h2 className='text-xl font-medium sm:text-4xl md:text-center'>
             Examples & Usage
           </h2>
 
-          <p className='text-center text-muted-foreground font-semibold'>
+          <p className='md:text-center text-muted-foreground font-semibold'>
             All the button variants below are available in the new shadcn-button
             component. Easily reuse them anywhere in your project.
           </p>

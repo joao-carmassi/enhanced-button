@@ -11,6 +11,14 @@ import {
   CodeBlockHeader,
   CodeBlockItem,
 } from '@/components/kibo-ui/code-block';
+import {
+  Snippet,
+  SnippetCopyButton,
+  SnippetHeader,
+  SnippetTabsContent,
+  SnippetTabsList,
+  SnippetTabsTrigger,
+} from '@/components/kibo-ui/snippet';
 import { Button } from '@/components/ui/button';
 import {
   HoverCard,
@@ -19,6 +27,7 @@ import {
 } from '@/components/ui/hover-card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Github } from 'lucide-react';
+import { useState } from 'react';
 
 const button = [
   {
@@ -243,7 +252,29 @@ const global = [
   },
 ];
 
+const commands = [
+  {
+    label: 'npm',
+    code: 'npx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+  },
+  {
+    label: 'pnpm',
+    code: 'pnpm dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+  },
+  {
+    label: 'yarn',
+    code: 'yarn dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+  },
+  {
+    label: 'bun',
+    code: 'bunx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+  },
+];
+
 function Hero(): React.ReactNode {
+  const [value, setValue] = useState(commands[0].label);
+  const activeCommand = commands.find((command) => command.label === value);
+
   return (
     <section className='min-h-screen grid place-items-center px-6 py-6 md:py-12'>
       <div className='container flex items-center justify-center flex-col gap-6 max-w-4xl w-full min-w-0'>
@@ -273,6 +304,24 @@ function Hero(): React.ReactNode {
           Easily expand the regular shadcn-button component with new button
           styles, without the need of creating new additional button components.
         </p>
+
+        <Snippet onValueChange={setValue} value={value}>
+          <SnippetHeader>
+            <SnippetTabsList className='w-fit'>
+              {commands.map((command) => (
+                <SnippetTabsTrigger key={command.label} value={command.label}>
+                  <span>{command.label}</span>
+                </SnippetTabsTrigger>
+              ))}
+            </SnippetTabsList>
+            {activeCommand && <SnippetCopyButton value={activeCommand.code} />}
+          </SnippetHeader>
+          {commands.map((command) => (
+            <SnippetTabsContent key={command.label} value={command.label}>
+              {command.code}
+            </SnippetTabsContent>
+          ))}
+        </Snippet>
 
         <Tabs defaultValue='button' className='w-full'>
           <TabsList>
