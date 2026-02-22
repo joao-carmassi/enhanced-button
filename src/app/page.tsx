@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <section className='min-h-screen grid place-items-center'>
       <div className='flex gap-3'>
-        <Button effect={'gradientSlideShow'}>Click me</Button>
+        <Button>Click me</Button>
         <CustomButton>Click me</CustomButton>
       </div>
     </section>
