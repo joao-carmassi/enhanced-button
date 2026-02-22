@@ -7,7 +7,7 @@ function Footer(): React.ReactNode {
       <HoverCard openDelay={10} closeDelay={100}>
         <HoverCardTrigger asChild>
           <a
-            href='https://joao-carmassi.github.io/enhanced-button/'
+            href='https://github.com/joao-carmassi/enhanced-button'
             target='_blank'
             rel='noopener noreferrer'
             className='text-foreground font-medium hover:underline'
