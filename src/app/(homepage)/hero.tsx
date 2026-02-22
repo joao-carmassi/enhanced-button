@@ -255,19 +255,19 @@ const global = [
 const commands = [
   {
     label: 'npm',
-    code: 'npx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+    code: 'npx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json',
   },
   {
     label: 'pnpm',
-    code: 'pnpm dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+    code: 'pnpm dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json',
   },
   {
     label: 'yarn',
-    code: 'yarn dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+    code: 'yarn dlx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json',
   },
   {
     label: 'bun',
-    code: 'bunx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json/',
+    code: 'bunx shadcn@latest add https://joao-carmassi.github.io/enhanced-button-v4/button.json',
   },
 ];
 
