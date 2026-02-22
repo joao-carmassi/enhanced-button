@@ -47,7 +47,6 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   --animate-shine: shine 3s ease-out infinite;
-  --animate-gradient-flow: gradient-flow 10s ease infinite;
 
   @keyframes shine {
     0% {
