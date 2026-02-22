@@ -45,7 +45,10 @@ function ButtonExample({ button, code }: Props): React.ReactNode {
                 key={item.language}
                 value={item.language}
               >
-                <CodeBlockContent language={item.language as BundledLanguage}>
+                <CodeBlockContent
+                  className='h-full'
+                  language={item.language as BundledLanguage}
+                >
                   {item.code}
                 </CodeBlockContent>
               </CodeBlockItem>

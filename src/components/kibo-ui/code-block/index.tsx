@@ -255,7 +255,6 @@ const codeBlockClassName = cn(
   '[&_.shiki]:!bg-transparent',
   '[&_code]:w-full',
   '[&_code]:grid',
-  '[&_code]:overflow-x-auto',
   '[&_code]:bg-transparent',
   '[&_.line]:px-4',
   '[&_.line]:w-full',
@@ -557,8 +556,8 @@ export type CodeBlockBodyProps = Omit<
 };
 
 export const CodeBlockBody = ({
-  className,
   children,
+  className,
   ...props
 }: CodeBlockBodyProps) => {
   const { data } = useContext(CodeBlockContext);
@@ -619,6 +618,7 @@ export const CodeBlockContent = ({
   themes,
   language,
   syntaxHighlighting = true,
+  className,
   ...props
 }: CodeBlockContentProps) => {
   const [html, setHtml] = useState<string | null>(null);
@@ -640,6 +640,7 @@ export const CodeBlockContent = ({
 
   return (
     <div
+      className={cn('overflow-y-auto', className)}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: "Kinda how Shiki works"
       dangerouslySetInnerHTML={{ __html: html }}
       {...props}
