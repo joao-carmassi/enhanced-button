@@ -39,9 +39,9 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
 import { Spinner } from '@/components/ui/spinner';
 
-/**
+/*
  * @author: @joao-carmassi
- * @description: Slide Text Button with animated vertical text transition
+ * @description: Enhanced button component with multiple variants, sizes, visual effects, icon support, and loading state
  * @version: 1.0.0
  * @date: 2026-22-02
  * @license: MIT

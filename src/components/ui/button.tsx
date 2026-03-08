@@ -4,7 +4,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
 import { Spinner } from '@/components/ui/spinner';
 
-/**
+/*
  * @author: @joao-carmassi
  * @description: Enhanced button component with multiple variants, sizes, visual effects, icon support, and loading state
  * @version: 1.0.0
